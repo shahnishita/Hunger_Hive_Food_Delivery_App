@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { food_list } from '../assets/assets';
 // If current file is in src/components/Placeorder/Placeorder.jsx
-import  getDistanceFromLatLonInKm  from '../components/LiveOrderTracking/LiveOrderTracking'
+import getDistanceFromLatLonInKm from '../components/LiveOrderTracking/LiveOrderTracking'
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
@@ -12,12 +12,20 @@ const StoreContextProvider = (props) => {
   const [discount, setDiscount] = useState(0);
   const [usedPromoCodes, setUsedPromoCodes] = useState([]);
   const [deliveryFee,setDeliveryFee] =useState(0) // static fee
-const shopLocation = {
-  latitude: 18.5123,  // replace with your shop's latitude
-  longitude: 73.7701  // replace with your shop's longitude
-};
+  const shopLocation = {
+    latitude: 18.5123,  // replace with your shop's latitude
+    longitude: 73.7701  // replace with your shop's longitude
+  };
 
-  const url = "http://localhost:4000";
+  // Backend URLs
+  const LOCAL_URL = "http://localhost:4000";
+  const LIVE_URL = "https://hunger-hive-food-delivery-app-4.onrender.com";
+
+  // Toggle this flag to switch backend URL
+  const isLive = true;  // set false to use local backend
+
+  // Use selected backend URL
+  const url = isLive ? LIVE_URL : LOCAL_URL;
 
   const setToken = (newToken, email) => {
     setTokenState(newToken);
@@ -57,16 +65,15 @@ const shopLocation = {
   }, [cartItems, userEmail]);
 
   const calculateDeliveryFee  = (userLat, userLon) => {
-  const distance = getDistanceFromLatLonInKm(userLat, userLon, shopLocation.latitude, shopLocation.longitude);
-  console.log('Distance:', getDistanceFromLatLonInKm(userLat, userLon, shopLocation.latitude, shopLocation.longitude));
+    const distance = getDistanceFromLatLonInKm(userLat, userLon, shopLocation.latitude, shopLocation.longitude);
+    console.log('Distance:', distance);
 
-  if (distance > 4) {
-    setDeliveryFee(100);  // Charge Rs. 100 if distance > 4 km
-  } else {
-    setDeliveryFee(50);    // No delivery fee if <= 4 km
-  }
-};
-
+    if (distance > 4) {
+      setDeliveryFee(100);  // Charge Rs. 100 if distance > 4 km
+    } else {
+      setDeliveryFee(50);    // No delivery fee if <= 4 km
+    }
+  };
 
   const addToCart = async (itemId) => {
     const newQuantity = 1;
@@ -209,13 +216,11 @@ const shopLocation = {
     deliveryFee,
     calculateDeliveryFee,
   };
-    return (
+  return (
     <StoreContext.Provider value={contextValue}>
       {props.children}
     </StoreContext.Provider>
   );
-
 };
-
 
 export default StoreContextProvider;
