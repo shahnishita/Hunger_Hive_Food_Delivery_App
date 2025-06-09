@@ -1,0 +1,128 @@
+/* Root Styles */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Logo Styles */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+/* Animation for Logo */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Card Styles */
+.card {
+  padding: 2em;
+}
+
+/* Link Styles */
+.read-the-docs {
+  color: #888;
+}
+
+/* App Content Layout */
+.app-content {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  background-color: #f8f9fa; /* Light background for the main area */
+}
+
+/* Sidebar Layout */
+.sidebar {
+  width: 250px;
+  border-right: 1px solid #ccc;
+  padding: 1rem;
+  background-color: #f8f9fa; /* Light grey background */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Content Layout */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: white;
+  box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Add hover effect on main content */
+.main-content:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+/* Media Queries */
+
+/* Mobile Layout (up to 600px) */
+@media screen and (max-width: 600px) {
+  .app-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+}
+
+/* Tablet Layout (601px to 900px) */
+@media screen and (max-width: 900px) {
+  .app-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-content {
+    padding: 1.5rem;
+  }
+}
+
+/* Desktop Layout (above 900px) */
+@media screen and (min-width: 901px) {
+  .app-content {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    width: 250px;
+  }
+
+  .main-content {
+    padding: 2rem;
+  }
+}

@@ -1,0 +1,57 @@
+/* General navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #282c34; /* Dark background for contrast */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border-radius: 10px;
+    margin: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Logo styling */
+  .logo {
+    width: 120px;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+
+  /* Profile image styling */
+  .profile {
+    width: 60px;  /* Increased width */
+    height: 60px; /* Increased height */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff; /* Slightly thicker white border for contrast */
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  /* Profile image hover effect */
+ 
+  
+  /* Ensure the profile icon is visible with a background color in case the image is dark */
+  .profile {
+    background-color: #fff; /* Adds a white background in case the image is dark */
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 20px;
+    }
+  
+    .logo {
+      width: 100px;
+    }
+  
+    .profile {
+      width: 50px;  /* Adjusted size for mobile */
+      height: 50px; /* Adjusted size for mobile */
+    }
+  }
+  

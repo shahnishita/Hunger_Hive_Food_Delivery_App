@@ -1,0 +1,122 @@
+/* Food Display Section Only */
+.food-display {
+    margin-top: 30px;
+    color: black;
+}
+
+/* Heading inside food display */
+.food-display h2 {
+    font-size: max(2vw, 24px);
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: black;
+}
+
+/* Grid layout for food cards */
+.food-display-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 30px;
+    gap: 30px;
+    row-gap: 50px;
+}
+
+/* Food display header (search & sort area) */
+.food-display-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+/* Search and sort container */
+.food-display .search-sort-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Search box style */
+.food-display .search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.food-display .search-box input {
+    padding: 10px 10px 10px 35px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    flex: 1;
+    background-color: transparent;
+    color: black;
+}
+
+.food-display .search-box input::placeholder {
+    color: #666;
+    transition: 0.3s ease-in-out;
+}
+
+.food-display .search-box input:focus::placeholder {
+    color: transparent;
+}
+
+.food-display .search-icon {
+    position: absolute;
+    left: 10px;
+    font-size: 16px;
+    color: #666;
+    pointer-events: none;
+}
+
+/* Select dropdowns for food display only */
+.food-display .search-sort-container select {
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.food-display .search-sort-container select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Hover effects only in food-display */
+.food-display .search-box:hover,
+.food-display .search-sort-container select:hover {
+    border-color: #999;
+}
+
+/* Fallback message for no results */
+.food-display-list p {
+    color: black;
+    font-size: 16px;
+}
+
+/* SCOPED THEME OVERRIDES – LIMITED TO FOOD DISPLAY */
+.food-display .h2we {
+    color: black !important;
+}
+
+.food-display .search-box {
+    background-color: white !important;
+    border-color: #ccc !important;
+}
+
+.food-display .search-box input {
+    color: black !important;
+}

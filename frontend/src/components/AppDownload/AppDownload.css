@@ -1,0 +1,33 @@
+.app-download {
+    background-color: #f8f8f8; /* Light grey background for contrast */
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    margin: 50px auto;
+    max-width: 600px;
+}
+
+.app-download p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.app-download div {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.app-download img {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.app-download img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
